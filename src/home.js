@@ -1,11 +1,6 @@
-export function loadHome(){
+import { setActiveTab } from "./setActive";
 
-    // set tab as active
-    let buttons = document.querySelectorAll("nav button");
-    buttons.forEach( (button)=> {
-        button.classList.remove("active");
-        if(button.classList.contains("home") ) button.classList.add("active");
-    }  );
+export function loadHome(){
 
 
     let schedArray = [ "Sunday: 8am - 8pm","Monday: 6am - 6pm","Tuesday: 6am - 6pm","Wednesday: 6am - 6pm","Thursday: 6am - 10pm","Friday: 6am - 10pm","Saturday: 8am - 10pm"];
@@ -43,4 +38,6 @@ export function loadHome(){
 
     container.appendChild(schedule);
 
+    // set tab as active
+    setActiveTab("home");
 }
