@@ -5,6 +5,7 @@ export function loadHome(){
 
     let schedArray = [ "Sunday: 8am - 8pm","Monday: 6am - 6pm","Tuesday: 6am - 6pm","Wednesday: 6am - 6pm","Thursday: 6am - 10pm","Friday: 6am - 10pm","Saturday: 8am - 10pm"];
     let container = document.getElementById("content");
+    let homeContainer = document.createElement("div");
 
 
     // First Block Section
@@ -15,8 +16,8 @@ export function loadHome(){
     let mainText = document.createElement("p");
     mainText.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam doloribus quaerat odio ut, facilis, magnam ipsum ullam, iusto doloremque cupiditate voluptatum iste tenetur nesciunt perferendis temporibus quis modi excepturi ipsam!";
 
-    container.appendChild(resName);
-    container.appendChild(mainText);
+    homeContainer.appendChild(resName);
+    homeContainer.appendChild(mainText);
 
     // third block section
     let schedule = document.createElement("div");
@@ -36,7 +37,10 @@ export function loadHome(){
     schedule.appendChild(schedHeader);
     schedule.appendChild(hours);
 
-    container.appendChild(schedule);
+    homeContainer.appendChild(schedule);
+
+    // add to page
+    container.appendChild(homeContainer);
 
     // set tab as active
     setActiveTab("home");
