@@ -6,6 +6,7 @@ export function loadHome(){
     let schedArray = [ "Sunday: 8am - 8pm","Monday: 6am - 6pm","Tuesday: 6am - 6pm","Wednesday: 6am - 6pm","Thursday: 6am - 10pm","Friday: 6am - 10pm","Saturday: 8am - 10pm"];
     let container = document.getElementById("content");
     let homeContainer = document.createElement("div");
+    container.innerHTML = "";
 
 
     // First Block Section

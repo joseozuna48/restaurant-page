@@ -1,46 +1,74 @@
 import { setActiveTab } from "./setActive";
+import tacos1 from "./tacos1.jpg"
+import tacos2 from "./tacos2.jpg"
+import tacos3 from "./tacos3.jpg"
 
 export function loadMenu(){
 
+    let menuItems = [
+        {
+            title: "Taco Package 1",
+            image: tacos1,
+            alt:"taco package 1",
+            price: "5.99"
+        },
+        {
+            title: "Taco Package 2",
+            image: tacos2,
+            alt:"taco package 2",
+            price: "8.99"
+        },
+        {
+            title: "Taco Package 3",
+            image: tacos3,
+            alt:"taco package 3",
+            price:"4.99"
+        }
+
+    ]
+
     let menuContent = {}
     let container = document.getElementById("content");
-    let homeContainer = document.createElement("div");
+    let menuContainer = document.createElement("div");
+
+    container.innerHTML = "";
 
 
-    // First Block Section
+    // Title section
     let resName = document.createElement("h1");
-    resName.textContent = "Restaurant Name";
+    resName.textContent = "Take a look at our menu!";
+    menuContainer.appendChild(resName);
 
-    // Second Block section
-    let mainText = document.createElement("p");
-    mainText.textContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam doloribus quaerat odio ut, facilis, magnam ipsum ullam, iusto doloremque cupiditate voluptatum iste tenetur nesciunt perferendis temporibus quis modi excepturi ipsam!";
+    // Menu items section
+    menuItems.forEach( (item)=>{
+        let itemContainer = document.createElement("div");
+        itemContainer.classList.add("menu-item");
 
-    homeContainer.appendChild(resName);
-    homeContainer.appendChild(mainText);
+        let title = document.createElement("h2");
+        title.innerText = item.title;
 
-    // third block section
-    let schedule = document.createElement("div");
-    schedule.classList.add("schedule");
+        let price = document.createElement("p");
+        price.innerText = `$${item.price}`;
+        price.classList.add("price")
 
-    let schedHeader = document.createElement("h2");
-    schedHeader.textContent = "Hours";
+        let image = document.createElement("img");
+        image.src = `${item.image}`;
+        image.alt = `${item.alt}`;
+        image.width ="300";
+        image.height = "300";
 
-    let hours = document.createElement("ul");
-    schedArray.forEach(element => {
-        let hourElement = document.createElement("li");
-        hourElement.innerText = element;
+        itemContainer.appendChild(title);
+        itemContainer.appendChild(price);
+        itemContainer.appendChild(image);
 
-        hours.appendChild(hourElement);
-    });
+        menuContainer.appendChild(itemContainer);
+    } ); 
 
-    schedule.appendChild(schedHeader);
-    schedule.appendChild(hours);
 
-    homeContainer.appendChild(schedule);
 
-    // add to page
-    container.appendChild(homeContainer);
 
+
+    container.appendChild(menuContainer)
     // set tab as active
     setActiveTab("menu");
 }
